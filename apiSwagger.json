@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "BINAR CHALLENGE CHAPTER 8",
+        "description": "Challenge dokumentasi API Chapter 8",
+        "contact": {
+            "email": "mahardika1987@gmail.com"
+        },
+        "version": "1.0.11"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000/api/v1"
+        }
+    ],
+    "paths": {
+        "/players": {
+            "get": {
+                "summary": "Get All Players",
+                "description": "Get Data All Player",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Players",
+                "description": "Create New Player",
+                "requestBody": {
+                    "description": "Create a new player game",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "allowEmptyValues": true
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "allowEmptyValues": true
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "allowEmptyValues": true
+                                    },
+                                    "experience": {
+                                        "type": "integer",
+                                        "allowEmptyValues": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Create Player Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/players/{id}": {
+            "get": {
+                "summary": "Get Player By Id",
+                "description": "Get Player base on Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "integer",
+                        "description": "ID Player"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Player Not Found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Player By ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "integer",
+                        "description": "ID Player"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "Update Player Success"
+                            },
+                            "400": {
+                                "description": "Player Not Found"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Player By ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "integer",
+                        "description": "ID Player"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Player Not Found"
+                    }
+                }
+            }
+        },
+        "/players/exp/{id}": {
+            "post": {
+                "summary": "Update EXP Player",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "integer",
+                        "description": "ID Player"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "exp": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update EXP Player Success"
+                    },
+                    "400": {
+                        "description": "Player Not Found"
+                    }
+                }
+            }
+        }
+    }
+}

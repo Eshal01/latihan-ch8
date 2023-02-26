@@ -1,9 +1,8 @@
-// const express = require('express');
-// const router = express.Router();
-// const swaggerUI = require('swagger-ui-express');
-// const specs = require('../config/swagger');
+const express = require('express');
+const apiSwagger = express.Router();
+const swaggerUI = require('swagger-ui-express');
+const specs = require('../../apiSwagger.json');
 
-// router.use('/', swaggerUI.serve);
-// router.get('/', swaggerUI.setup(specs));
+apiSwagger.use('/api-doc', swaggerUI.serve, swaggerUI.setup(specs));
 
-// module.exports = router;
+module.exports = apiSwagger;
