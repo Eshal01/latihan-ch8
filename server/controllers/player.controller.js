@@ -61,10 +61,7 @@ class PlayerController {
         },
       });
       if (data) {
-        return res.status(200).json({
-          result: "Success",
-          data,
-        });
+        return res.status(200).json(data);
       }
     } catch (error) {
       next(error);
@@ -76,10 +73,7 @@ class PlayerController {
       const { id } = req.params;
       const player = await Player.findByPk(id);
       if (player) {
-        return res.status(200).json({
-          result: "Success",
-          data: player,
-        });
+        return res.status(200).json(player);
       } else {
         return res.status(404).json({
           result: "Not found",
@@ -100,10 +94,7 @@ class PlayerController {
         where: { id: id },
       });
       if (updatedPlayer == 1) {
-        return res.status(200).json({
-          result: "Success",
-          message: `Player with id: ${id} successfully updated`,
-        });
+        return res.status(200).json(updatedPlayer);
       } else {
         return res.status(500).json({
           result: "failed",

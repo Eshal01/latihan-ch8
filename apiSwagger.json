@@ -3,9 +3,6 @@
     "info": {
         "title": "BINAR CHALLENGE CHAPTER 8",
         "description": "Challenge dokumentasi API Chapter 8",
-        "contact": {
-            "email": "mahardika1987@gmail.com"
-        },
         "version": "1.0.11"
     },
     "servers": [
@@ -13,9 +10,18 @@
             "url": "http://localhost:4000/api/v1"
         }
     ],
+    "tags": [
+        {
+            "name": "Player",
+            "description": "All About Player"
+        }
+    ],
     "paths": {
         "/players": {
             "get": {
+                "tags":[
+                    "Player"
+                ],
                 "summary": "Get All Players",
                 "description": "Get Data All Player",
                 "responses": {
@@ -28,10 +34,13 @@
                 }
             },
             "post": {
+                "tags":[
+                    "Player"
+                ],
                 "summary": "Create Players",
                 "description": "Create New Player",
                 "requestBody": {
-                    "description": "Create a new player game",
+                    "description": "Field to create a new player game",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -70,8 +79,11 @@
         },
         "/players/{id}": {
             "get": {
-                "summary": "Get Player By Id",
-                "description": "Get Player base on Id",
+                "tags":[
+                    "Player"
+                ],
+                "summary": "Get Player",
+                "description": "Get Player By Id",
                 "parameters": [
                     {
                         "name": "id",
@@ -82,7 +94,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Get data player by ID Success"
                     },
                     "404": {
                         "description": "Player Not Found"
@@ -90,7 +102,11 @@
                 }
             },
             "put": {
-                "summary": "Update Player By ID",
+                "tags":[
+                    "Player"
+                ],
+                "summary": "Update Player",
+                "description": "Update Player By ID",
                 "parameters": [
                     {
                         "name": "id",
@@ -129,7 +145,11 @@
                 }
             },
             "delete": {
-                "summary": "Delete Player By ID",
+                "tags":[
+                    "Player"
+                ],
+                "summary": "Delete Player",
+                "description": "Delete Player By Id",
                 "parameters": [
                     {
                         "name": "id",
@@ -150,7 +170,11 @@
         },
         "/players/exp/{id}": {
             "post": {
+                "tags":[
+                    "Player"
+                ],
                 "summary": "Update EXP Player",
+                "description":"Update EXP Player By ID",
                 "parameters": [
                     {
                         "name": "id",
