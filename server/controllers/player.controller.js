@@ -28,10 +28,11 @@ class PlayerController {
       };
       const createdPlayer = await Player.create(newPlayer);
       if (createdPlayer) {
-        return res.status(201).json({
-          result: "Success",
-          data: createdPlayer,
-        });
+        // return res.status(201).json({
+        //   result: "Success",
+        //   data: createdPlayer,
+        // });
+        res.redirect('dashboard')
       }
     } catch (error) {
       next(error);
@@ -62,6 +63,7 @@ class PlayerController {
       });
       if (data) {
         return res.status(200).json(data);
+        res.render('index', {data})
       }
     } catch (error) {
       next(error);

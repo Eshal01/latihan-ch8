@@ -1,0 +1,38 @@
+
+    <div class="container ">
+        <div class="row">
+            <div class="col">
+                <h2>User Data</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> <%= playerData.username %> </td>
+                        <td><%= playerData.email %></td>
+                        <td><%= playerData.experience %></td>
+                        <td><%= playerData.lvl %></td>
+                        <td>
+                          <a class="btn btn-info btn-sm" href="/api/v1/dashboard/edit/<%= playerData.id %>">Edit</a>
+                          <form method="POST" action="/api/v1/dashboard?_method=DELETE" class="d-inline">
+                            <input type="hidden" id="id" value="<%= playerData.id %>">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
